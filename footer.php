@@ -1,0 +1,393 @@
+		<?php if (!isset($no_visible_elements) || !$no_visible_elements) {
+    ?>
+			<!-- content ends -->
+			</div><!--/#content.span10-->
+		<?php
+} ?>
+		</div><!--/fluid-row-->
+		<?php if (!isset($no_visible_elements) || !$no_visible_elements) {
+        ?>
+		
+		<hr>
+
+		<div class="modal hide fade" id="myModal">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">×</button>
+				<h3></h3>
+			</div>
+			<div class="modal-body">
+				<p></p>
+			</div>
+			<div class="modal-footer">
+				<a href="#" class="btn" data-dismiss="modal">Close</a>
+				<a href="#" class="btn btn-primary">Save changes</a>
+			</div>
+		</div>
+
+		<!--About IQSuite-->
+		<div class="modal hide fade" id="aboutIQ">
+				
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">×</button>
+				<h3>About IQSUITE </h3>
+			</div>
+			<div class="modal-body">
+				<h3> About Application </h3>
+				<p> IQSuite Accounting application is simple to use yet powerful accounting tool that is made as per the requirements for the firm Lilac Fashion, Qatar.</p>
+				<h3> Support </h3>
+				<p> The current application is deployed on local server on request of the client. If you found any bugs/errors please drop a mail to support@iqlas.com</p>
+				<h3> License Information </h3>
+				<p> This Product is licensed to Lucky Lilac, Doha, Qatar. The license for the application is for the initial period of one calender year till <b> <?php echo $_SESSION['expiry_date']->format('Y-m-d'); ?> </b>. </p>
+			</div>
+			<div class="modal-footer">
+				<a href="mailto:support@iqlas.com" class="btn">Feedback</a>
+				<a href="#" class="btn btn-primary" data-dismiss="modal">Close</a>
+			</div>
+		</div> 
+		<!--end about iqsuite-->
+		
+		<!--add currency-->
+		<div class="modal hide fade" id="addCurrency">
+				
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">×</button>
+				<h3>Add Currency </h3>
+			</div>
+			<div class="modal-body">
+				<form class="form-horizontal">
+						 <fieldset>
+							<div class="control-group">
+							  <label class="control-label" for="date01">Add Currency</label>
+							  <div class="controls">
+								<input type="text"  maxlength=3 class="input-xlarge focused" id="txtAddCurrency" onblur="this.value=this.value.toUpperCase()">
+							  </div>
+							</div>
+						</fieldset>
+							
+			</div>
+			<div class="modal-footer">
+											  <button type="submit" class="btn btn-primary">Add Currency</button>
+							  <button type="reset" class="btn btn-primary noty" data-dismiss="modal" data-noty-options='{"text":"No Currency Added","layout":"top","type":"error"}'>Cancel</button>
+				
+						  
+				</form>   
+			</div>
+		</div>
+		<!-- end add currency-->
+		
+		<!--add category-->
+		<div class="modal hide fade" id="addCategory">
+				
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">×</button>
+				<h3>Add Category </h3>
+			</div>
+			<div class="modal-body">
+				<form class="form-horizontal" id="add_cat_form">
+						 <fieldset>
+							<div class="control-group">
+							  <label class="control-label" for="date01">Add Category</label>
+							  <div class="controls">
+								<input type="text" name="new_cat"  class="input-xlarge focused" id="focusedInput" >
+							  </div>
+							</div>
+						</fieldset>
+							
+			</div>
+			<div class="modal-footer">
+											  <button type="submit" class="btn btn-primary">Add Category</button>
+							  <button type="reset" class="btn btn-primary noty" data-dismiss="modal" data-noty-options='{"text":"No Category Added","layout":"top","type":"error"}'>Cancel</button>
+				
+						  
+				</form>   
+			</div>
+		</div>
+		<!-- end add category-->
+		
+		<!-- add new customer-->
+		<?php if (!isset($noaddcustomermodel)):  ?>
+		<div class="modal hide fade" id="addCustomer">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">×</button>
+				<h3>Add Customer </h3>
+			</div>
+			<div class="modal-body">
+				<div class="box-content">
+						<form class="form-horizontal" id="cust_addform">
+						  <fieldset>
+							<div class="control-group">
+							  <label class="control-label" for="date01">Date</label>
+							  <div class="controls">
+								<input type="text" class="input-xlarge datepicker uneditable-input" id="date01"  disabled="disabled" name="cust_addate" value="<?php echo  $new_game = date('d/m/Y', time()); ?>">
+							  </div>
+							</div>
+							<div class="control-group">
+								<label class="control-label">Customer Code</label>
+								<div class="controls">
+								  <span class="input-xlarge uneditable-input" id="cust_code"><?php
+                                 $item=mysql_num_rows(mysql_query('select * from tblcustomer'));
+        $new_item                     =$item + 1;
+        echo $_SESSION['cust_code']   ='CUST' . $new_item; ?></span>
+								</div>
+							  </div>
+							
+							  <div class="control-group">
+								<label class="control-label" for="itemName">Customer Name </label>
+								<div class="controls">
+								  <input class="input-xlarge focused" id="itemName" type="text"  name="cust_name">
+								</div>
+							  </div>
+							  
+							<div class="control-group">
+								<label class="control-label" for="focusedInput">Contact Number</label>
+								<div class="controls">
+								  <input class="input-xlarge focused" id="focusedInput" type="text" name="cust_mobile" >
+								</div>
+							  </div>
+							  
+							  <div class="control-group">
+								<label class="control-label" for="focusedInput">Email ID</label>
+								<div class="controls">
+								  <input class="input-xlarge focused" id="focusedInput" type="text"  name="cust_email">
+								</div>
+							  </div>
+							
+							<div class="control-group">
+							  <label class="control-label" for="textarea2">Address</label>
+							  <div class="controls">
+								<textarea   rows="3" name="cust_addressa" ></textarea>
+							  </div>
+							</div>
+							
+							<div class="control-group">
+								<label class="control-label">Customer Type</label>
+								<div class="controls">
+								 <select class="input-xlarge" id="selectCategory" data-rel="chosen" name="cust_type">
+									<option value="">...Select Type...</option>
+									<option>Individual</option>
+									<option>Company</option>
+								</select>
+								</div>
+							  </div>
+							  
+							  <div class="control-group">
+								<label class="control-label" for="focusedInput">Company Name</label>
+								<div class="controls">
+								  <input class="input-xlarge focused" id="focusedInput" type="text"  name="cust_cname">
+								</div>
+							  </div>
+												
+							<div class="form-actions">
+							  <button type="submit" class="btn btn-primary">Add Customer</button>
+							  <button type="reset" class="btn">Cancel</button>
+							</div>
+						  </fieldset>
+						</form>   
+
+					</div>
+				
+				
+				
+				<!-- <form class="form-horizontal">
+						 <fieldset>
+							<div class="control-group">
+							  <label class="control-label" for="date01">Add Customer</label>
+							  <div class="controls">
+								<input type="text"  maxlength=3 class="input-xlarge focused" id="focusedInput" >
+							  </div>
+							</div>
+						</fieldset>
+							
+			</div>
+			<div class="modal-footer">
+											  <button type="submit" class="btn btn-primary">Add Customer</button>
+							  <button type="reset" class="btn btn-primary noty" data-dismiss="modal" data-noty-options='{"text":"No Customer Added","layout":"top","type":"error"}'>Cancel</button>
+				
+						  
+				</form>    -->
+			</div>
+		</div>
+		<?php endif; ?>
+		<!--end add new customer-->
+		<!--add category-->
+		<div class="modal hide fade" id="add-mr-modal">
+				
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">×</button>
+				<h3 class="mr-modal-text"></h3>
+			</div>
+			<div class="modal-body">
+				
+							  <button type="" class="btn btn-primary pull-right"data-dismiss="modal">OK</button>
+				
+						  
+				   
+			</div>
+		</div>
+		<!-- end mr modal-->
+		
+<!--------------------------------------------------------------------------------------------------------------------->
+		
+				<!--About confirm delete stock ID-->
+		<div class="modal hide fade" id="deleteStockModal">
+				
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">×</button>
+				<h3>Delete Stock </h3>
+			</div>
+			<div class="modal-body">
+				<h3> Do you really want to delete item?  </h3>
+			</div>
+			<div class="modal-footer">
+				<a href="mailto:info@iqlas.com" class="btn">Feedback</a>
+				<a href="#" class="btn btn-primary" data-dismiss="modal">Close</a>
+			</div>
+		</div>
+		<!------------------------------------------------------------------------------------------------------------------------------>
+
+
+		
+		
+		
+
+		<footer>
+			<p class="pull-left">&copy; <a href="http://oryxfashion.com" target="_blank">Lucky Lilac</a> <?php echo date('Y') ?></p>
+			<p class="pull-right">Application by: <a href="http://iqlas.com?ref=lilacapp">IQLAS Global Solutions</a></p>
+		</footer>
+		<?php
+    } ?>
+
+	</div><!--/.fluid-container-->
+
+	<!-- external javascript
+	================================================== -->
+	<!-- Placed at the end of the document so the pages load faster -->
+
+	<!-- jQuery -->
+	<script src="js/jquery-1.7.2.min.js"></script>
+	<!-- jQuery UI -->
+	<script src="js/jquery-ui-1.8.21.custom.min.js"></script>
+	<!-- transition / effect library -->
+	<script src="js/bootstrap-transition.js"></script>
+	<!-- alert enhancer library -->
+	<script src="js/bootstrap-alert.js"></script>
+	<!-- modal / dialog library -->
+	<script src="js/bootstrap-modal.js"></script>
+	<!-- custom dropdown library -->
+	<script src="js/bootstrap-dropdown.js"></script>
+	<!-- scrolspy library -->
+	<script src="js/bootstrap-scrollspy.js"></script>
+	<!-- library for creating tabs -->
+	<script src="js/bootstrap-tab.js"></script>
+	<!-- library for advanced tooltip -->
+	<script src="js/bootstrap-tooltip.js"></script>
+	<!-- popover effect library -->
+	<script src="js/bootstrap-popover.js"></script>
+	<!-- button enhancer library -->
+	<script src="js/bootstrap-button.js"></script>
+	<!-- accordion library (optional, not used in demo) -->
+	<script src="js/bootstrap-collapse.js"></script>
+	<!-- carousel slideshow library (optional, not used in demo) -->
+	<script src="js/bootstrap-carousel.js"></script>
+	<!-- autocomplete library -->
+	<script src="js/bootstrap-typeahead.js"></script>
+	<!-- tour library -->
+	<script src="js/bootstrap-tour.js"></script>
+	<!-- library for cookie management -->
+	<script src="js/jquery.cookie.js"></script>
+	<!-- calander plugin -->
+	<script src='js/fullcalendar.min.js'></script>
+	<!-- data table plugin -->
+	<script src='js/jquery.dataTables.min.js'></script>
+<script src="js/jquery.numeric.js" type="text/javascript" charset="utf-8"></script>
+	<!-- chart libraries start -->
+	<script src="js/excanvas.js"></script>
+	<script src="js/jquery.flot.min.js"></script>
+	<script src="js/jquery.flot.pie.min.js"></script>
+	<script src="js/jquery.flot.stack.js"></script>
+	<script src="js/jquery.flot.resize.min.js"></script>
+	<script src="js/jquery.printElement.min.js" type="text/javascript" charset="utf-8"></script>
+	<!-- chart libraries end -->
+
+	<!-- select or dropdown enhancer -->
+	<script src="js/jquery.chosen.min.js"></script>
+	<!-- checkbox, radio, and file input styler -->
+	<script src="js/jquery.uniform.min.js"></script>
+	<!-- plugin for gallery image view -->
+	<script src="js/jquery.colorbox.min.js"></script>
+	<!-- rich text editor library -->
+	<script src="js/jquery.cleditor.min.js"></script>
+	<!-- notification plugin -->
+	<script src="js/jquery.noty.js"></script>
+	<!-- file manager library -->
+	<script src="js/jquery.elfinder.min.js"></script>
+	<!-- star rating plugin -->
+	
+	<script src="js/jquery.raty.min.js"></script>
+	<!-- for iOS style toggle switch -->
+	<script src="js/jquery.iphone.toggle.js"></script>
+	<!-- autogrowing textarea plugin -->
+	<script src="js/jquery.autogrow-textarea.js"></script>
+	<!-- multiple file upload plugin -->
+	<script src="js/jquery.uploadify-3.1.min.js"></script>
+	<!-- history.js for cross-browser state change on ajax -->
+	<script src="js/jquery.history.js"></script>
+	<!-- application script for Charisma demo -->
+	<script src="js/charisma.js"></script>
+	<?php if (isset($rcep_page)):?>
+	<script type="text/javascript" charset="utf-8">
+	$('#costPrice').numeric();
+	$('#balanceamt').numeric();
+	$('#rcvdcash').numeric();
+	$('#thooo').numeric();
+		$('#invoiceNumber').on('change',function(){
+			var amount=$('#invoiceNumber option:selected').attr("amount");
+			var pending=$('#invoiceNumber option:selected').attr("pending");
+			$('#costPrice').val(amount);
+			$('#balanceamt').val(pending);
+			$('#thooo').val(pending);
+			$('#costPrice,#balanceamt,#rcvdcash').removeAttr('disabled');
+		});
+		$('#rcvdcash').on('keyup',function(){
+			$('#balanceamt').val($('#thooo').val()-$(this).val());
+			var o=$('#thooo').val();
+			var p=$('#rcvdcash').val();
+			// alert(o);
+			// alert(p);
+			if(parseInt(p)>parseInt(o)){
+				$('#rcvdcash').val(o)
+				$('#balanceamt').val(0);
+				// alert('Recieved cash cannot exceed Old Balance');
+			}
+		});
+		$('.method-radios input').click(function(){
+			if($(this).val()=='cheque')
+				$('#cheque1,#cheque2,#cheque3').removeAttr('disabled').attr("required","required");
+				// $('#cheque2').datepicker();
+			else
+				$('#cheque1,#cheque2,#cheque3').removeAttr('required').attr("disabled","disabled");
+		});
+		$('#new-rcpt').on('submit',function(){
+			var formdata=$(this).serialize();
+			//alert(formdata);
+			$.post('create-rcpt',formdata,function(data){
+				if(data==1){
+					window.location.reload();
+				}else{
+					alert(data);
+				}
+			});
+			return false;
+		});
+		$('#new-rcpt').on('reset',function(){
+			$('#rcpt_code').val($('#mashkiriyena').text());
+		});
+	</script>
+	<?php endif;?>
+	<?php $actual_link = "$_SERVER[REQUEST_URI]";?>
+	<?php if (stristr($actual_link, 'order-add.php') == true) {
+        echo '<script src="js/ord.js" type="text/javascript" charset="utf-8"></script>';
+    }?>
+
+</body>
+</html>

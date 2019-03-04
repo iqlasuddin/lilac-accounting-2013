@@ -1,0 +1,75 @@
+if ($('#itemName').val()!="" && $('#selectCategory').val()!="" && $('#focusedInput').val()!="" && $('#selectUOM').val()!="" && $("#quantity").val()!="" && $('#costPrice').val()!="" &&$('#sellingPrice').val()!="") {
+		itemName=$('#itemName').val();
+		selectCategory=$('#selectCategory').val();
+		focusedInput=$('#focusedInput').val();
+		selectUOM=$('#selectUOM').val();
+		quantity=$("#quantity").val();
+		costPrice=$('#costPrice').val();
+		sellingPrice=$('#sellingPrice').val();
+		alert(sellingPrice);
+		$.post("upload_stock.php",{
+			itemName:itemName,
+			selectCategory:selectCategory,
+			focusedInput:focusedInput,
+			selectUOM:selectUOM,
+			quantity:quantity,
+			costPrice:costPrice,
+			sellingPrice:sellingPrice
+		},function(data){alert(data)});
+		return false;
+	} else{
+		return false;
+		alert("Fill All Field");'
+		
+		data-noty-options='{"text":"No Category Added","layout":"top","type":"error"}'
+		class-"noty"
+		
+	};
+	
+	return false;
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	-------------------------------------------
+		$deal=mysql_query("select id from tblorder order by id desc limit 1");//SELECT fields FROM table ORDER BY id DESC LIMIT 1;;
+									$ordr = mysql_fetch_array($deal);
+									$new_ordr=$ordr[0]+1;
+									echo "ORD" . $new_ordr;
+									$exploded=explode('@',$usr);
+									$tbl=$exploded[0].'ord'.$new_ordr;
+									$delquery=	"DROP TABLE tblorder_$tbl";
+									mysql_query($delquery);
+	--------------------------------------------
+	
+	
+	
+	
+	
+	
+		echo$qurry="select * from tblcategory where c_name='$new_cat' ";
+	$check= mysql_num_rows(mysql_query($qurry));
+	if ($check==0) {
+		$query="insert into tblcategory (c_name,c_adddate) values ('$new_cat', '$new_game')";
+	$insert_cat=mysql_query($query);
+	if($insert_cat){
+		echo "Added";
+	}
+	else {
+		echo "string";
+	}	
+	}
+	else {
+		echo "string45";
+	}

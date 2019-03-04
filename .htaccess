@@ -1,0 +1,4 @@
+RewriteEngine On    # Turn on the rewriting engine
+RewriteRule ^([^\.]+)$ $1.php [NC,L]
+
+
